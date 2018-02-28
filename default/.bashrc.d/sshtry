@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+sshtry () {
+
+    usage() { echo "Usage: $1 <host> [-u <user>]" 1>&2; return 1; }
+
+    function_name=${FUNCNAME[0]}
+
+    local OPTIND o hostname user
+
+    hostname=$1
+    shift
+
+    while getopts "u:" o; do
+        case ${o} in
+            u)
+                user=${OPTARG}
+                ;;
+            *)
+                usage ${function_name}
+                return 1
+                ;;
+        esac
+    done
+    shift "$((OPTIND-1))"
+
+    if [ -z "${hostname}" ]; then
+        usage ${function_name}
+        return 1
+    fi
+
+    if [ -z "${user}" ]; then
+        user="${USER}"
+    fi
+
+    echo -n "Trying ${hostname}"
+    until nc -vz ${hostname} 22 >/dev/null 2>&1; do
+        echo -n "."
+        sleep 1
+    done
+    echo
+    ssh -l${user} ${hostname}
+}
