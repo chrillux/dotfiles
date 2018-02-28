@@ -34,7 +34,7 @@ sshtry () {
     fi
 
     echo -n "Trying ${hostname}"
-    until nc -vz ${hostname} 22 >/dev/null 2>&1; do
+    until nc -w 1 -vz ${hostname} 22 >/dev/null 2>&1; do
         echo -n "."
         sleep 1
     done
