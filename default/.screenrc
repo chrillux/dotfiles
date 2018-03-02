@@ -1,0 +1,9 @@
+# huge scrollback buffer
+defscrollback 5000
+
+# no welcome message
+startup_message off
+
+# Not all terminals can work with colors.
+term xterm
+
