@@ -7,3 +7,5 @@ startup_message off
 # Not all terminals can work with colors.
 term xterm
 
+# Start Bash as login shell so we get our settings from profile and bashrc.
+shell -$SHELL
