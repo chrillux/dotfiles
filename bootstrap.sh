@@ -5,6 +5,11 @@
 
 BASEDIR=$(dirname $0)
 RSYNC='rsync -av'
+home=${1}
+
+if [ -z "${home}" ];then
+    home=${HOME}
+fi
 
 for program in rsync git; do
     if ! which ${program} > /dev/null; then
@@ -20,5 +25,5 @@ cd ${BASEDIR}
 git pull
 
 # Sync default files.
-${RSYNC} ./default/ ${HOME}
+${RSYNC} ./default/ ${home}
 
