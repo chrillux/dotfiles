@@ -13,13 +13,13 @@ sshtry () {
 
     while getopts "u:" o; do
         case ${o} in
-            u)
-                user=${OPTARG}
-                ;;
-            *)
-                usage ${function_name}
-                return 1
-                ;;
+        u)
+            user=${OPTARG}
+            ;;
+        *)
+            usage ${function_name}
+            return 1
+            ;;
         esac
     done
     shift "$((OPTIND-1))"
@@ -41,3 +41,4 @@ sshtry () {
     echo
     ssh -l${user} ${hostname}
 }
+
