@@ -27,3 +27,15 @@ git pull
 # Sync default files.
 ${RSYNC} ./default/ ${home}
 
+bashrcd_section='BASHRCD="${HOME}/.bashrc.d"
+if [ -d "${BASHRCD}" ] ; then
+    if [[ $(ls -1 ${BASHRCD}/ | wc -l) -gt 0 ]]; then
+        for file in "${BASHRCD}/"*; do
+            . ${file}
+        done
+    fi
+fi'
+
+if ! grep 'BASHRCD=' "${home}/.bashrc" >/dev/null 2>&1; then
+    echo -en "\n${bashrcd_section}\n\n" >> "${home}/.bashrc"
+fi
