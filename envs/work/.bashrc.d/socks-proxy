@@ -4,8 +4,9 @@ function socks_proxy() {
 
     jumpserver=$1
     proxyserver=$2
+    socks_proxy_port=1080
 
-    pkill -f "ssh -4 -J ${jumpserver} -fND 8080 ${proxyserver}"
-    ssh -4 -J "${jumpserver}" -fND 8080 "${proxyserver}"
+    pkill -f "ssh -4 -J ${jumpserver} -fND ${socks_proxy_port} ${proxyserver}"
+    ssh -4 -J "${jumpserver}" -fND "${socks_proxy_port}" "${proxyserver}"
 }
 
