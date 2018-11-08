@@ -1,0 +1,11 @@
+#!bash
+
+function socks_proxy() {
+
+    jumpserver=$1
+    proxyserver=$2
+
+    pkill -f "ssh -4 -J ${jumpserver} -fND 8080 ${proxyserver}"
+    ssh -4 -J "${jumpserver}" -fND 8080 "${proxyserver}"
+}
+

@@ -6,6 +6,7 @@
 BASEDIR=$(dirname $0)
 RSYNC='rsync -av'
 home=${1}
+environment=${2}
 
 if [ -z "${home}" ];then
     home=${HOME}
@@ -38,4 +39,10 @@ fi'
 
 if ! grep 'BASHRCD=' "${home}/.bashrc" >/dev/null 2>&1; then
     echo -en "\n${bashrcd_section}\n\n" >> "${home}/.bashrc"
+fi
+
+if [ -n "${environment}" ]; then
+    if [ -d "./envs/${environment}" ]; then
+        ${RSYNC} ./envs/${environment}/ ${home}/
+    fi
 fi
