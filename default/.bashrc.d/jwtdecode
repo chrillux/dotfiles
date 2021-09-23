@@ -1,0 +1,5 @@
+function jwtdecode() {
+    echo "Paste your JWT"
+    read -r j
+    echo "${j}" | jq -R 'gsub("-"; "+") | gsub("_"; "/") | split(".") | .[1] | @base64d | fromjson'
+}
