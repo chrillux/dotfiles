@@ -1,0 +1,7 @@
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export PATH="/opt/homebrew/opt/mongodb-community@4.4/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/bin:$PATH"
+export PATH="$HOME/git/quinyx/qwfm/tools/bin:$PATH"
+export PATH="$PATH:$HOME/.linkerd2/bin"
+export PATH="$HOME/.local/bin:$PATH"
