@@ -26,6 +26,20 @@ ln -sf ~/.zshrc.bak ~/.zshrc  # if you have an existing one to restore
 oh-my-zsh must be installed separately. The following plugins are used (all bundled with oh-my-zsh):
 `git`, `kubectl`, `direnv`, `fzf`, `aws`
 
+## Neovim setup
+
+After bootstrapping, `~/.config/nvim/init.lua` will be in place. Open Neovim once to trigger automatic plugin installation:
+
+```bash
+nvim
+```
+
+Plugins are managed by `vim.pack` (built into Neovim 0.12+). Wait for the initial install to complete, then restart nvim. The following CLI tools are also required:
+
+```bash
+brew install neovim tree-sitter-cli ripgrep fd lazygit
+```
+
 ## Structure
 
 ```
