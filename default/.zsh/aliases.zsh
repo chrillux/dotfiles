@@ -1,4 +1,4 @@
-alias ls='ls -G'
+alias ls='gls --color'
 alias python='python3'
 alias cd='cd -P'
 alias cloudcrypt='gpg -aer 7C947989'

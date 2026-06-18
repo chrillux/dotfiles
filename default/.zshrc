@@ -28,3 +28,5 @@ source "$HOME/.zsh/env.zsh"
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/completions.zsh"
 source "$HOME/.zsh/tools.zsh"  # SDKMAN must be last — do not add PATH entries after this
+
+export LS_COLORS="$(vivid generate molokai)"
